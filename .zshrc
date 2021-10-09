@@ -12,19 +12,33 @@ fi
 
 # Customize to your needs...
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/Users/e185703/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/Users/e185703/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-#        . "/Users/e185703/opt/miniconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/Users/e185703/opt/miniconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-export PATH="/Users/e185703/opt/miniconda3/bin:$PATH"
-# <<< conda initialize <<<
+export PATH="$HOME/bin:$PATH"
 
+# python setup
+eval "$(pipenv --completion)"
+export PATH="/usr/local/opt/m4/bin:$PATH"
+
+eval "$(pyenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+# setting GOPATH
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# setting peco and ghq
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
