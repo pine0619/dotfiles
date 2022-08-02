@@ -10,6 +10,7 @@ brew "peco"
 brew "goenv"
 brew "pipenv"
 brew "pyenv"
+brew "mas"
 
 cask "1password"
 cask "bitwarden"
@@ -23,6 +24,7 @@ cask "zoom"
 cask "discord"
 cask "spotify"
 
-mas "Keynote", id: 409183694
 mas "Slack", id: 803453959
 mas "Bear", id: 1091189122
+mas "Magnet", id: 441258766
+mas 'LINE', id: 539883307
