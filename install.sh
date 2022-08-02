@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 # add submodule
+echo "git submodule update --init --recursive"
 git submodule update --init --recursive
 
 # prezto
@@ -15,9 +16,6 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/.vim ~/.vim
-
-# change shell
-chsh -s $(which zsh)
 
 source ~/dotfiles/.zshrc
 source ~/dotfiles/.zpreztorc

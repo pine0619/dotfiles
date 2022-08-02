@@ -24,7 +24,9 @@ cask "zoom"
 cask "discord"
 cask "spotify"
 
-mas "Slack", id: 803453959
+mas "slack-for-desktop", id: 803453959
 mas "Bear", id: 1091189122
 mas "Magnet", id: 441258766
 mas 'LINE', id: 539883307
+mas 'skitch', id: 425955336
+mas "yoink", id: 457622435

@@ -17,3 +17,7 @@ brewで入れられるパッケージをまとめたBrewfileを元に環境構�
 
 ## zshの設定
 install.shを実行したら自動で設定される。
+
+## itermのtheme設定
+下記を参考に
+https://draculatheme.com/iterm
